@@ -1,0 +1,238 @@
+<html>
+{% extends 'index.html' %}
+{% block title %} Design AB test {% endblock %}
+
+{% block content %}
+
+
+
+
+<style>
+    .hypotheses_box_form {
+        border-radius:10px;
+        background:white;
+        text-align:center;
+        border:1px solid #b2a8ad;
+        padding: 10px;
+<!--        display:flex;-->
+        flex-direction:column;
+        align-items:start;
+        height: 150px;
+        overflow-y:auto;
+        padding-right:20px;
+        margin-bottom:22px;
+        box-shadow: 9px 9px 4px -13px rgba(0,0,0,0.73);
+        padding-left:12px;
+        padding-top:12px;
+         padding-bottom:12px;
+        }
+
+    .hypotheses_box_form_second{
+        flex-direction:row;
+        height:100px;
+
+
+    }
+
+   .question_label {
+        font-weight:bold;
+        font-size:18px;
+   }
+   .metric_select {
+        max-width:100%;
+   }
+
+<!--   .input_visible {-->
+<!--        display:block;-->
+<!--   }-->
+
+   .input_invisible {
+        display:none;
+   }
+
+    .choose_sql_or_file {
+        display:flex;
+        gap:12px;
+        margin-bottom: 12px;
+    }
+
+    .hypotheses_box_form_choose_way {
+        height:auto;
+    }
+
+
+</style>
+
+
+<div class="container mt-2" id="div_add_metrics_form">
+    <h2 class="text-center mb-4" id="form_header">Design AB test</h2>
+
+    <form method="post" action="{% url 'home' %}" class="needs-validation" id="add_metrics_form" novalidate>
+        {% csrf_token %}
+<!--        <div class="form-group">-->
+<!--                <label for="metricType">Choose hypotheses</label>-->
+<!--                <select class="form-control" id="hyptheses_id" name="metricType">-->
+
+<!--&lt;!&ndash;       {for metrics_name in MetricsBD             &ndash;&gt;-->
+<!--                    <option value="Metric1">Metric1</option>-->
+<!--                    <option value="Metric2">Metric2</option>-->
+<!--                    <option value="Metric3">Metric3</option>-->
+<!--                </select>-->
+<!--        </div>-->
+
+
+        <div class="hypotheses_box_form">
+<!--            <div></div>-->
+            <label class="question_label">Choose Metric</label>
+
+            <div class="form-check" id="form_check_l">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Гипотеза о увелчении прибыли при внедрении новой ML модели
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Гипотеза о увелчении прибыли при внедрении новой ML модели
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Гипотеза о увелчении прибыли при внедрении новой ML модели
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Гипотеза о увелчении прибыли при внедрении новой ML модели
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Гипотеза о увелчении прибыли при внедрении новой ML модели
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Гипотеза о увелчении прибыли при внедрении новой ML модели
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Гипотеза о увелчении прибыли при внедрении новой ML модели</label>
+            </div>
+        </div>
+
+        <div class="hypotheses_box_form hypotheses_box_form_second">
+            <div class="form-group" id="choose_metric">
+                    <label for="metricType">Choose metric</label>
+                    <select class="form-control metric_select" id="metricType" name="metricType">
+    <!--       {for metrics_name in MetricsBD             -->
+                        <option value="Metric1">ЖОПА ЖОПА ЖОПА</option>
+                        <option value="Metric2">Metric2</option>
+                        <option value="Metric3">Metric3</option>
+                    </select>
+            </div>
+        </div>
+
+        <div class="hypotheses_box_form hypotheses_box_form_choose_way">
+            <label class="question_label">Choose the way </label>
+
+            <div class="choose_sql_or_file">
+                <div class="form-check">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                      <label class="form-check-label" for="exampleRadios1">
+                        SQL
+                      </label>
+                </div>
+                <div class="form-check">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                      <label class="form-check-label" for="exampleRadios2">
+                        File
+                      </label>
+                </div>
+            </div>
+<!--        </div>-->
+
+        <div id="sql">
+            <div class="form-group">
+
+                <textarea id="sql_code" name="sql_code" rows="5" class="form-control" placeholder="Enter SQL code" required></textarea>
+                <div class="invalid-feedback">Please enter the SQL code.</div>
+            </div>
+
+        </div>
+
+
+        <div id="file">
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="inputGroupFile01">Upload</label>
+              <input type="file" class="form-control" id="inputGroupFile01">
+            </div>
+        </div>
+
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+
+
+    {% if submitted %}
+
+        <div class="results mt-5">
+            <h3>Submitted Data</h3>
+            <p><strong>Metric Name:</strong> {{ metric_name }}</p>
+            <p><strong>Is Discrete:</strong> {{ is_discrete }}</p>
+            <p><strong>SQL Code:</strong> <pre>{{ sql_code }}</pre></p>
+        </div>
+    {% endif %}
+
+    <script defer>
+        const sql_input = document.getElementById('exampleRadios2');
+        const file_input = document.getElementById('exampleRadios1');
+
+        const sql = document.getElementById('sql');
+        const file = document.getElementById('file');
+
+        if (file_input.checked) {
+               file.classList.add("input_invisible");
+            }
+
+        sql_input.addEventListener(
+            "change",
+            function() {
+              sql.classList.add("input_invisible");
+              file.classList.remove("input_invisible");
+            }
+        )
+
+        file_input.addEventListener(
+            "change",
+            function() {
+                sql.classList.remove("input_invisible");
+                file.classList.add("input_invisible");
+            }
+        )
+<!--        if (sql_form.checked) {-->
+<!--                console.log('болит')-->
+<!--                sql.classList.add("input_visible");-->
+<!--                file.classList.add("input_invisible");-->
+<!--            }-->
+<!--        if (file_form.checked) {-->
+<!--                console.log('хуй')-->
+<!--                sql.classList.add("input_invisible");-->
+<!--                file.classList.add("input_visible");-->
+<!--        }-->
+
+
+
+    </script>
+{% endblock %}
+
+
+
+</html>
+

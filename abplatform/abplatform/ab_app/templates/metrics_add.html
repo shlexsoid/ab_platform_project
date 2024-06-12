@@ -1,0 +1,47 @@
+<html>
+{% extends 'index.html' %}
+{% block title %} Add metrics {% endblock %}
+
+
+{% block content %}
+
+
+
+<div class="container mt-5" id="div_add_metrics_form">
+    <h2 class="text-center mb-4" id="form_header">Add Metric Information</h2>
+
+    <form method="post" action="{% url 'home' %}" class="needs-validation" id="add_metrics_form" novalidate>
+        {% csrf_token %}
+        <div class="form-group" id="form_group_metrics_add">
+            <label for="metric_name">What is the name of your metric?</label>
+            <input type="text" id="metric_name" name="metric_name" class="form-control" placeholder="Enter metric name" required>
+            <div class="invalid-feedback">Please enter the metric name.</div>
+        </div>
+        <div class="form-group">
+                <label for="metricType">Type of Metric</label>
+                <select class="form-control" id="metricType" name="metricType">
+                    <option value="ratio">Ratio</option>
+                    <option value="discrete">Discrete</option>
+                    <option value="continuous">Continuous</option>
+                </select>
+        </div>
+        <div class="form-group">
+            <label for="sql_code">Insert your code below:</label>
+            <textarea id="sql_code" name="sql_code" rows="5" class="form-control" placeholder="Enter SQL code" required></textarea>
+            <div class="invalid-feedback">Please enter the SQL code.</div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    </form>
+
+    {% if submitted %}
+        <div class="results mt-5">
+            <h3>Submitted Data</h3>
+            <p><strong>Metric Name:</strong> {{ metric_name }}</p>
+            <p><strong>Is Discrete:</strong> {{ is_discrete }}</p>
+            <p><strong>SQL Code:</strong> <pre>{{ sql_code }}</pre></p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+</html>

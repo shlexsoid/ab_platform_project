@@ -1,0 +1,65 @@
+{% extends "index.html" %}
+
+{% block title %}A/B Test Results{% endblock %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="main-content">
+        <!-- Table for A/B test results -->
+        <table class="ab-table">
+            <thead>
+                <tr>
+                    <th>Variant</th>
+                    <th>Visitors</th>
+                    <th>Conversions</th>
+                    <th>Conversion Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example row -->
+                <tr>
+                    <td>Variant A</td>
+                    <td>1000</td>
+                    <td>200</td>
+                    <td>20%</td>
+                </tr>
+                <tr>
+                    <td>Variant B</td>
+                    <td>1200</td>
+                    <td>250</td>
+                    <td>20.83%</td>
+                </tr>
+                <!-- Add rows dynamically from Django context here -->
+                {% for result in results %}
+                <tr>
+                    <td>{{ result.variant }}</td>
+                    <td>{{ result.visitors }}</td>
+                    <td>{{ result.conversions }}</td>
+                    <td>{{ result.conversion_rate }}%</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="sidebar">
+        <!-- Filtering options -->
+        <h2>Filter Results</h2>
+        <form method="GET" action="{% url 'home' %}">
+            <label for="variant">Variant:</label>
+            <select id="variant" name="variant">
+                <option value="">All</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <!-- Add more variants dynamically if needed -->
+            </select>
+            <br>
+            <label for="date_range">Date Range:</label>
+            <input type="date" id="start_date" name="start_date">
+            to
+            <input type="date" id="end_date" name="end_date">
+            <br>
+            <button type="submit">Filter</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

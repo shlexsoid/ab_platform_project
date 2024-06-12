@@ -1,0 +1,250 @@
+/* myapp/static/css/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:red;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+}
+
+nav.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul.nav-left li {
+    margin-right: 1.5rem;
+    position: relative;
+}
+
+nav ul.nav-right li {
+    margin-left: 1.5rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    text-align: center; /* Center text */
+    font-weight: bold;
+
+
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    padding: 0.5rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    text-align: center; /* Center text */
+    font-weight: bold;
+
+
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: white;
+    text-align: center; /* Center text */
+    font-weight: bold;
+
+
+}
+
+.dropdown-menu a:hover {
+    background-color: #555;
+    text-align: center; /* Center text */
+    font-weight: bold;
+
+
+}
+
+main {
+    padding: 2rem;
+}
+
+#footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-decoration: underline;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    bottom: 0;
+    width: 100%;
+    text-align:center;
+}
+
+footer a:visited {
+    color: white;
+    text-decoration: none;
+    text-align:center;
+}
+
+/* Additional styles to maintain consistency */
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align:center;
+}
+
+
+/* Container for the main content and sidebar */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+/* Main content area (table) */
+.main-content {
+    flex: 2;
+    margin-right: 2rem;
+}
+
+/* Sidebar for filtering options */
+.sidebar {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border: 1px solid #ccc;
+}
+
+/* Table styles */
+.ab-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ab-table th, .ab-table td {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.ab-table th {
+    background-color: #f0f0f0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .main-content {
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    .sidebar {
+        padding: 1rem;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.results pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.CodeMirror {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+#inner_footer {
+    text-align:center;
+}
+
+#add_metrics_form {
+    color:black;
+    margin:0 auto;
+    text-align:center;
+}
+
+#hypotheses_box_form {
+    border-radius:10px;
+    background-color:black;
+}
+
+#div_add_metrics_form{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+}
+
+#form_header{
+    color:black;
+}
+
+#main_id{
+    height:90%;
+}
+
+
+
+#hypotheses_box_form {
+    border-radius:10;
+    background-color:black;
+}
